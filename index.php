@@ -51,13 +51,19 @@ include('includes/header.php');
                                                 <td><?= $value['name__'];?></td>
                                                 <td><?= $value['dscrpt'];?></td>
                                                 <td><?php
-                                                    if($value['dl_dt'] < $currdt)
+                                                    if(@$value['is_com'] == true)
+                                                    {
+                                                        ?>
+                                                        <p style="color:green !important"><?= $value['dl_dt'];?></p>
+                                                        <?php
+                                                    }
+                                                    elseif($value['dl_dt'] < $currdt)
                                                     {
                                                         ?>
                                                         <p style="color:red"><?= $value['dl_dt'];?></p>
                                                         <?php
                                                     }
-                                                    else 
+                                                    else
                                                     {
                                                         ?><?= $value['dl_dt'];
                                                     }?>
